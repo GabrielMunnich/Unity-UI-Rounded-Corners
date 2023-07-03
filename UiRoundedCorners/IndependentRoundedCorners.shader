@@ -82,9 +82,9 @@
                 #ifdef UNITY_UI_ALPHACLIP
                 clip(alpha - 0.001);
                 #endif
-                fixed4 finalColor  = mixAlpha(tex2D(_MainTex, i.uv), i.color, alpha);
-                GammaToLinear(finalColor.rgb)
-                return finalColor
+                fixed4 finalColor = mixAlpha(tex2D(_MainTex, i.uv), i.color, alpha);
+                finalColor.rgb = GammaToLinearSpace(finalColor.rgb); 
+                return finalColor;
             }
             
             ENDCG
