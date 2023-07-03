@@ -79,7 +79,7 @@ Shader "UI/RoundedCorners/RoundedCorners" {
                 clip(alpha - 0.001);
                 #endif
                 fixed4 finalColor = mixAlpha(tex2D(_MainTex, i.uv), i.color, alpha);
-                finalColor = GammaToLinear(finalColor.rgb);
+                finalColor.rgb = GammaToLinearSpace(finalColor.rgb); 
                 return finalColor;
             }
             
